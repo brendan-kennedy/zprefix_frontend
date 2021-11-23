@@ -6,7 +6,7 @@ function Blogs() {
      <div>
         <header>
           <p>
-           WElCOME TO THE BLOGS PAGE, IT'S IN WORK! 
+           <BlogCard/>
           </p>
         </header>
       
