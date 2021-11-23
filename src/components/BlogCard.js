@@ -23,7 +23,7 @@ function BlogCard() {
         const blogs = await data.json();
         console.log(blogs);
         setBlogs(blogs);
-    ///sskk
+    
         };
     
     

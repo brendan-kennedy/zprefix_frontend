@@ -9,38 +9,48 @@ import Button from '@mui/material/Button'
 
 function CompleteBlog() {
 
+    
+    
+    const [blog, setBlog] = useState ([{blog_title: '', blog_text: '', blog_date: '' }]);
+
+    
+
     useEffect(() => {
         fetchResults();
     }, []);
     
-    const [blog, setBlog] = useState ([]);
-    
     const fetchResults = async () => {
-        let id = 
+        let url = window.location.href
+        let urlLength = url.length
+        //console.log(urlLength)
+        let id = url[urlLength-1]
+        //console.log(id)
         const data = await fetch(
             `http://localhost:8080/blogs/${id}`
         );
     
-        const blogs = await data.json();
+        const blog = await data.json();
         console.log(blog);
         setBlog(blog);
 
-    ///sskk
-        };
+
+       };
         return ( 
             <div>
+                
                 <h1>
-                {blog.blog_title}   
+                {blog[0].blog_title}   
                 </h1>
                 <h3> 
-                {blog.blog_date}    
+                {blog[0].blog_date}    
                 </h3> 
                 <p> 
-                 {blog.blog_text}   
+                {blog[0].blog_text}   
                 </p>
                 <Button variant="contained" color="primary">Edit</Button>
                 <Button variant="contained" color="primary">Delete</Button> 
-            </div> 
+            
+        </div> 
 
         )
 
