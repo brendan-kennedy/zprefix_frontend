@@ -8,7 +8,16 @@ import {
 
 function Login() {
 
-    
+  const [state, setState] = useState ({
+    username: '', 
+    password: ''
+  });
+
+  const handleChange = e => {
+    const {id,value} =e.target
+    setState(prevState => ({
+       ...prevState, [id] : value}))
+  };
     
     
     return (
@@ -18,17 +27,29 @@ function Login() {
         Please Login
       </h1> 
       <Box m = {1}>
-      <TextField id="standard-basic" label="Username" variant="standard" /> 
+      <TextField 
+      id="username" 
+      label="Username" 
+      variant="standard" 
+      value= {state.username}
+      onChage = {handleChange}
+       /> 
       </Box>
 
       <Box m = {1}>
-      <TextField id="standard-basic" label="Password" variant="standard" /> 
+      <TextField 
+      id="password" 
+      label="Password" 
+      variant="standard" 
+      value = {state.password} 
+      onChage = {handleChange}
+      /> 
       </Box> 
 
       <Box m = {1}>
-      {/*<Link to = "/login" style={{ textDecoration: 'none', color: 'white'}} >*/}
+      <Link to = "/:id" style={{ textDecoration: 'none', color: 'white'}} >
           <Button variant="contained" color="primary">Login!</Button>
-      {/*</Link> */}
+      </Link>
       </Box>
 
       <Box m = {1}>
