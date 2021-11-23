@@ -6,7 +6,7 @@ import {
   Routes, Route, Link} from "react-router-dom";
   import Button from '@mui/material/Button';
 
-function Login() {
+function AccountForm() {
 
     
     
@@ -15,7 +15,7 @@ function Login() {
      
     <form>
       <h1>
-        Please Login
+        Create a New Brendan's Blog Bazaar Account: 
       </h1> 
       <Box m = {1}>
       <TextField id="standard-basic" label="Username" variant="standard" /> 
@@ -26,14 +26,8 @@ function Login() {
       </Box> 
 
       <Box m = {1}>
-      {/*<Link to = "/login" style={{ textDecoration: 'none', color: 'white'}} >*/}
-          <Button variant="contained" color="primary">Login!</Button>
-      {/*</Link> */}
-      </Box>
-
-      <Box m = {1}>
-      <Link to = "/makeaccount" style={{ textDecoration: 'none', color: 'white'}} >
-          <Button variant="contained" color="primary"> Make an Account! </Button>
+      <Link to = "/login" style={{ textDecoration: 'none', color: 'white'}} >
+          <Button variant="contained" color="primary"> Create Account! </Button>
       </Link>
       </Box>
     </form> 
@@ -41,4 +35,4 @@ function Login() {
     );
   }
   
-  export default Login;
+  export default AccountForm;

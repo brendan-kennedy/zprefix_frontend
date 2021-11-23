@@ -16,6 +16,7 @@ import Home from './components/Home';
 import Blogs from './components/Blogs';
 import CompleteBlog from './components/CompleteBlog';
 import UsersBlogList from './components/UsersBlogList';
+import AccountForm from './components/AccountForm'
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
   <Route path="/blogs/:id" element={<CompleteBlog/>} />
   <Route path="/login" exact element={<Login/>} />
   <Route path="/users/:id" exact element={<UsersBlogList/>} />
+  <Route path="/makeaccount" exact element={<AccountForm/>} />
   </Routes>
   
 </div>  
