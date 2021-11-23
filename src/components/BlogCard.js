@@ -1,7 +1,10 @@
 import React from 'react';
 import Box from "@mui/material/Box";
 import {useState, useEffect } from 'react';
-import Card from '@mui/material/Card'
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import {
+    Routes, Route, Link} from "react-router-dom";
 
 
 function BlogCard() {
@@ -32,12 +35,12 @@ function BlogCard() {
                 <h1>
                     {blog.blog_title}
                 </h1>
-                <p> 
-                    {blog.blog_text}
-                </p>
-                <p> 
+                <h2> 
                     {blog.blog_date}
-                </p>
+                </h2>
+                <Link to= {`/blogs/${blog.id}`} style={{ textDecoration: 'none', color: 'white'}}>
+                <Button variant="contained" color="primary">Full Blog</Button>
+                </Link>
             </Card> 
                 //sssss
             ))}
