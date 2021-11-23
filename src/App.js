@@ -15,6 +15,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Blogs from './components/Blogs';
 import CompleteBlog from './components/CompleteBlog';
+import UsersBlogList from './components/UsersBlogList';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
   <Route path="/blogs" exact element={<Blogs/>} />
   <Route path="/blogs/:id" element={<CompleteBlog/>} />
   <Route path="/login" exact element={<Login/>} />
+  <Route path="/users/:id" exact element={<UsersBlogList/>} />
   </Routes>
   
 </div>  

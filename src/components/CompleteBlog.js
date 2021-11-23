@@ -47,8 +47,8 @@ function CompleteBlog() {
                 <p> 
                 {blog[0].blog_text}   
                 </p>
-                <Button variant="contained" color="primary">Edit</Button>
-                <Button variant="contained" color="primary">Delete</Button> 
+                {/*<Button variant="contained" color="primary">Edit</Button>
+                <Button variant="contained" color="primary">Delete</Button>*/} 
             
         </div> 
 
