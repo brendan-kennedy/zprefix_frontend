@@ -17,10 +17,13 @@ function AccountForm() {
 
         console.log(blog)
 
-        fetch('"http://localhost:8080/make',{
+        fetch('http://localhost:8080/make',{
            method: 'POST' ,
-           headers: {"Content-Type": "application/json"}
-        })
+           headers: {"Content-Type": "application/json"},
+           body: JSON.stringify(blog)
+        }).then(()=>{
+            console.log('new user created')
+        } )
     }
     
     return (
