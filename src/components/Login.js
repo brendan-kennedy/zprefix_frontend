@@ -8,21 +8,44 @@ import {
 
 function Login() {
 
-  const [state, setState] = useState ({
-    username: '', 
-    password: ''
-  });
+  const [username, setUsername] = useState ('');
+  const [password, setPassword] = useState ('');  
 
-  const handleChange = e => {
-    const {id,value} =e.target
-    setState(prevState => ({
-       ...prevState, [id] : value}))
-  };
+    const handleSubmit = (e) => {
+      e.preventDefault() 
+      const account = {username,password}
+
+      console.log(account)
+
+      fetch('http://localhost:8080/login',{
+         method: 'POST' ,
+         headers: {"Content-Type": "application/json"},
+         body: JSON.stringify(account)
+      }).then(()=>{
+          console.log('login successful!')
+      } )
+
+      useEffect(() => {
+        fetchResults();
+    }, []);
     
+    const [user, setUser] = useState ([]);
+    
+    const fetchResults = async () => {
+        const data = await fetch(
+            "http://localhost:8080/login/:id"
+        );
+    
+        const user = await data.json();
+        console.log(user);
+        setBlogs(blogs);
+    
+        };
+  }
     
     return (
      
-    <form>
+    <form onSubmit = {handleSubmit}>
       <h1>
         Please Login
       </h1> 
@@ -31,8 +54,8 @@ function Login() {
       id="username" 
       label="Username" 
       variant="standard" 
-      value= {state.username}
-      onChage = {handleChange}
+      value= {username}
+      onChange = {(e) => setUsername(e.target.value)}
        /> 
       </Box>
 
@@ -41,22 +64,26 @@ function Login() {
       id="password" 
       label="Password" 
       variant="standard" 
-      value = {state.password} 
-      onChage = {handleChange}
+      value = {password} 
+      onChange = {(e) => setPassword(e.target.value)}
       /> 
       </Box> 
 
       <Box m = {1}>
-      <Link to = "/:id" style={{ textDecoration: 'none', color: 'white'}} >
+      <Link to = {`/${blog.id}`} style={{ textDecoration: 'none', color: 'white'}} >
           <Button variant="contained" color="primary">Login!</Button>
       </Link>
       </Box>
 
       <Box m = {1}>
       <Link to = "/makeaccount" style={{ textDecoration: 'none', color: 'white'}} >
-          <Button variant="contained" color="primary"> Make an Account! </Button>
+          <Button type = 'submit' variant="contained" color="primary"> Make an Account! </Button>
       </Link>
       </Box>
+
+      <p>{username}</p>
+      <p>{password}</p>
+
     </form> 
   
     );

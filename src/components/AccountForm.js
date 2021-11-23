@@ -13,14 +13,14 @@ function AccountForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault() 
-        const blog = {username,password}
+        const account = {username,password}
 
-        console.log(blog)
+        console.log(account)
 
         fetch('http://localhost:8080/make',{
            method: 'POST' ,
            headers: {"Content-Type": "application/json"},
-           body: JSON.stringify(blog)
+           body: JSON.stringify(account)
         }).then(()=>{
             console.log('new user created')
         } )
@@ -55,9 +55,6 @@ function AccountForm() {
       <Box m = {1}>
           <Button  type = 'submit' variant="contained" color="primary"> Create Account! </Button>
       </Box>
-
-      <p> Your Username that you created is: {username} </p>
-      <p> Your Password that you created is: {password} </p>
     </form> 
   
     );
