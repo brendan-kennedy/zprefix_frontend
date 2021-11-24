@@ -19,9 +19,9 @@ import UsersBlogList from './components/UsersBlogList';
 import AccountForm from './components/AccountForm'
 import UserAccountPage from './components/UserAccountPage'
 import AccountBlogList from './components/AccountBlogList'
-import AccountCompleteBlog from './components/AccountCompleteBlog'
 import EditForm from './components/EditForm'
 import DeleteForm from './components/DeleteForm'
+import BlogForm from './components/BlogForm'
 
  
 function App() {
@@ -49,9 +49,9 @@ function App() {
   <Route path="/makeaccount" exact element={<AccountForm/>} />
   <Route path="/:username" exact element={<UserAccountPage/>} />
   <Route path="/:username/:id" exact element={<AccountBlogList/>} />
-  <Route path="/:username/blogs/:id" exact element={<AccountCompleteBlog/>} />
   <Route path="/edit/:id" exact element={<EditForm/>} />
   <Route path="/delete/:id" exact element={<DeleteForm/>} />
+  <Route path="/createblog/:id" exact element={<BlogForm/>} />
   </Routes>
   
 </div>  

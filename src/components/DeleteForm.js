@@ -8,6 +8,27 @@ import {
 
 function DeleteForm() {
 
+    useEffect(() => {
+        fetchResults();
+    }, []);
+    
+    const [blogs, setBlogs] = useState ([]);
+    
+    const fetchResults = async () => {
+        let url = window.location.href
+      let parts = url.split('/')
+      let id = parts.pop() || parts.pop()
+      console.log(id)
+        const data = await fetch(
+            `http://localhost:8080/blogs/${id}`
+        );
+    
+        const blogs = await data.json();
+        console.log(blogs);
+        setBlogs(blogs);
+    
+        };
+
     const handleClick = () => { 
         let url = window.location.href
       let parts = url.split('/')

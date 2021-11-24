@@ -7,6 +7,7 @@ import {
     Routes, Route, Link} from "react-router-dom";
 
 
+
 function UserAccountPage() {
     
     useEffect(() => {
@@ -43,10 +44,12 @@ function UserAccountPage() {
           </Box>
 
           <Box m = {1}>
-          <Link to = {`/`} style={{ textDecoration: 'none', color: 'white'}} >
+          <Link to = {`/createblog/${user[0].id}`} style={{ textDecoration: 'none', color: 'white'}} >
           <Button variant="contained" color="primary">Create a New Blog!</Button>
           </Link>
           </Box>
+
+          
           
         </div>
     );
