@@ -41,6 +41,11 @@ export default function ButtonAppBar() {
           <Link to = "/login" style={{ textDecoration: 'none', color: 'white'}} >
           <Button color="inherit">Login</Button>
           </Link>
+
+          <Link to = "/makeaccount" style={{ textDecoration: 'none', color: 'white'}} >
+          <Button color="inherit"> Create an Account </Button>
+          </Link>
+
         </Toolbar>
       </AppBar>
     </Box>

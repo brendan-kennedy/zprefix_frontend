@@ -17,9 +17,8 @@ function UsersBlogList() {
     
     const fetchResults = async () => {
         let url = window.location.href
-        let urlLength = url.length
-        //console.log(urlLength)
-        let id = url[urlLength-1]
+      let parts = url.split('/')
+      let id = parts.pop() || parts.pop()
         const data = await fetch(
             `http://localhost:8080/users/${id}/blogs`
         );

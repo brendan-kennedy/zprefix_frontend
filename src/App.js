@@ -42,7 +42,7 @@ function App() {
   <Route path="/login" exact element={<Login/>} />
   <Route path="/users/:id" exact element={<UsersBlogList/>} />
   <Route path="/makeaccount" exact element={<AccountForm/>} />
-  <Route path="/:id" exact element={<UserAccountPage/>} />
+  <Route path="/:username" exact element={<UserAccountPage/>} />
   </Routes>
   
 </div>  

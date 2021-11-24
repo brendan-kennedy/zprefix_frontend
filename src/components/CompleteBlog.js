@@ -21,9 +21,8 @@ function CompleteBlog() {
     
     const fetchResults = async () => {
         let url = window.location.href
-        let urlLength = url.length
-        //console.log(urlLength)
-        let id = url[urlLength-1]
+      let parts = url.split('/')
+      let id = parts.pop() || parts.pop()
         //console.log(id)
         const data = await fetch(
             `http://localhost:8080/blogs/${id}`
