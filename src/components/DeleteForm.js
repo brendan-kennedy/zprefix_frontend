@@ -36,7 +36,7 @@ function DeleteForm() {
             </Box>
 
             <Box m = {1}>
-            <Link to= {`/`} style={{ textDecoration: 'none', color: 'white'}}>
+            <Link to= {`/login`} style={{ textDecoration: 'none', color: 'white'}}>
             <Button  type = 'submit' variant="contained" color="primary"> Return to Login </Button>
             </Link> 
             </Box>
