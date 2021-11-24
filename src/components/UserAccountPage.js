@@ -13,7 +13,7 @@ function UserAccountPage() {
         fetchResults();
     }, []);
     
-    const [user, setUser] = useState ({id: '' ,username: ''});
+    const [user, setUser] = useState([{id: '' ,username: ''}]);
     
     const fetchResults = async () => {
       let url = window.location.href
@@ -35,6 +35,18 @@ function UserAccountPage() {
           <h1>
             Welcome to your page {`${user[0].username}`} 
           </h1> 
+
+          <Box m = {1}>
+          <Link to = {`/${user[0].username}/${user[0].id}`} style={{ textDecoration: 'none', color: 'white'}} >
+          <Button variant="contained" color="primary">Your Blogs!</Button>
+          </Link>
+          </Box>
+
+          <Box m = {1}>
+          <Link to = {`/`} style={{ textDecoration: 'none', color: 'white'}} >
+          <Button variant="contained" color="primary">Create a New Blog!</Button>
+          </Link>
+          </Box>
           
         </div>
     );
