@@ -15,6 +15,7 @@ function AccountForm() {
     const [blog_title, setTitle] = useState ('');
     const [blog_text, setText] = useState ('');
     const [blog_date,setDate] = useState ('') ;
+    const [blog_user_id,setId] = useState ('') ;
     
     
     useEffect(() => {
@@ -41,7 +42,7 @@ function AccountForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault() 
-        const blog = {blog_title,blog_text,blog_date}
+        const blog = {blog_title,blog_text,blog_date, blog_user_id}
 
         console.log(blog)
 
@@ -60,6 +61,10 @@ function AccountForm() {
       <h1>
         Create a Blog Post: 
       </h1> 
+
+      <h2> 
+        Your user ID is: {`${id}`}
+      </h2>
      
       <Box m = {1}>
       <TextField 
@@ -96,14 +101,15 @@ function AccountForm() {
       id="standard-basic" 
       label="User ID" 
       variant="standard"
-      value = {id}
+      value = {blog_user_id}
+      onChange = {(e) => setId(e.target.value)}
     /> 
       </Box> 
 
       <Box m = {1}>
-          <Link to = {`/${user[0].username}/${user[0].id}`} style={{ textDecoration: 'none', color: 'white'}}> 
+           
           <Button  type = 'submit' variant="contained" color="primary"> Create Blog! </Button>
-          </Link> 
+          
       </Box>
     </form> 
   
