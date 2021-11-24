@@ -8,17 +8,15 @@ import {
 
 function EditForm() {
 
-    return(
-        <h1>
-            in work 
-        </h1> 
-    )
-}
-   {/* useEffect(() => {
+      
+    useEffect(() => {
         fetchResults();
     }, []);
     
-    const [blog, setBlog] = useState ([{blog_title: '', blog_text:'', blog_date: '', blog_user_id:''}]);
+    const [title, setTitle] = useState (title)
+    const [text, setText] = useState(text)
+    const [date, setDate] = useState(date)
+    const [blog_id, setId]= useState('')
     
     const fetchResults = async () => {
       let url = window.location.href
@@ -31,14 +29,21 @@ function EditForm() {
         );
     
         const blog = await data.json();
-        console.log(blog);
-        setBlog(blog);
+        const title = blog.blog_title
+        const text = blog.blog_text
+        const date = blog.blog_date
+        const blog_id = blog.blog_user_id
+        console.log(blog)
+        setTitle(title);
+        setText(text);
+        setDate(date);
+        setId(id);
     
         };
 
     const handleSubmit = (e) => {
         e.preventDefault() 
-        const blog = {blog_title,blog_text,blog_date,blog_user_id}
+        const blog = {title,text,date,blog_id}
 
         console.log(blog)
 
@@ -53,7 +58,7 @@ function EditForm() {
     
     return (
      
-    {<form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h1>
         Edit your existing blog: 
       </h1> 
@@ -62,8 +67,8 @@ function EditForm() {
       id="standard-basic" 
       label="Title" 
       variant="standard"
-      value = {blog_title}
-      onChange = {(e) => setUsername(e.target.value)}
+      value = {title}
+      onChange = {(e) => setTitle(e.target.value)}
     /> 
       </Box>
 
@@ -72,8 +77,8 @@ function EditForm() {
       id="standard-basic" 
       label="Text" 
       variant="standard"
-      value = {blog_text}
-      onChange = {(e) => setPassword(e.target.value)}
+      value = {text}
+      onChange = {(e) => setText(e.target.value)}
     /> 
       </Box> 
 
@@ -82,8 +87,8 @@ function EditForm() {
       id="standard-basic" 
       label="Date" 
       variant="standard"
-      value = {blog_date}
-      onChange = {(e) => setPassword(e.target.value)}
+      value = {date}
+      onChange = {(e) => setDate(e.target.value)}
     /> 
       </Box>
 
@@ -92,17 +97,17 @@ function EditForm() {
       id="standard-basic" 
       label="User ID" 
       variant="standard"
-      value = {blog_user_id}
-      onChange = {(e) => setPassword(e.target.value)}
+      value = {blog_id}
+      onChange = {(e) => setId(e.target.value)}
     /> 
       </Box>
 
       <Box m = {1}>
-          <Button  type = 'submit' variant="contained" color="primary"> Create Account! </Button>
+          <Button  type = 'submit' variant="contained" color="primary"> Edit! </Button>
       </Box>
     </form> 
   
-    ); */}
-  
+    );
+    }
   
   export default EditForm;
