@@ -7,7 +7,9 @@ import {
   import Button from '@mui/material/Button';
 
 function EditForm() {
-
+  let url = window.location.href
+  let parts = url.split('/')
+  const id = parts.pop() || parts.pop()
   const [blog_title,setTitle] = useState('')
   const [blog_text,setText] = useState('')
   const [blog_date,setDate] = useState('')
@@ -21,11 +23,7 @@ function EditForm() {
     const [originalblog,setBlog] = useState([{blog_title:'',blog_text:'',blog_date:'',blog_user_id:''}])
     
     const fetchResults = async () => {
-      let url = window.location.href
-      let parts = url.split('/')
-      //console.log(parts)
-      let id = parts.pop() || parts.pop()
-      console.log(id)
+      
       const data = await fetch(
             `http://localhost:8080/blogs/${id}`
         );
@@ -38,10 +36,7 @@ function EditForm() {
 
     const handleSubmit = (e) => {
       e.preventDefault() 
-      let url = window.location.href
-      let parts = url.split('/')
-      let id = parts.pop() || parts.pop()
-      //console.log(id)
+
         const blog = {blog_title,blog_text,blog_date,blog_user_id}
 
         console.log(blog)
@@ -122,6 +117,12 @@ function EditForm() {
 
       <Box m = {1}>
           <Button onClick = {handleClick} type = 'submit' variant="contained" color="primary"> Edit! </Button>
+      </Box>
+      
+      <Box m = {1}>
+      <Link to= {`/blogs/${id}`} style={{ textDecoration: 'none', color: 'white'}}>
+          <Button variant="contained" color="primary"> Check out this new blog! </Button>
+      </Link>
       </Box>
     <p>
       {edit}

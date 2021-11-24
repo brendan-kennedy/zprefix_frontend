@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import {
     Routes, Route, Link} from "react-router-dom";
-import { red } from '@mui/material/colors';
+
 
 
 function AccountBlogList() {
@@ -57,7 +57,7 @@ function AccountBlogList() {
                 <Button variant="contained" color="primary">Delete Blog</Button>
                 </Link>
             </Card> 
-                //sssss
+                
 
             ))}
             </div>

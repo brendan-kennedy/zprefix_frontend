@@ -9,13 +9,22 @@ import {
 function AccountForm() {
 
     const [username, setUsername] = useState ('');
-    const [password, setPassword] = useState ('');   
+    const [password, setPassword] = useState ('');  
+    const [create, setCreate] = useState('New User Not Created')
 
+    const handleClick = () => { 
+      const create = 'A New User Has Been Created!'
+      setCreate(create)
+    }
+    
     const handleSubmit = (e) => {
         e.preventDefault() 
         const account = {username,password}
 
         console.log(account)
+    
+        
+      
 
         fetch('http://localhost:8080/make',{
            method: 'POST' ,
@@ -53,8 +62,11 @@ function AccountForm() {
       </Box> 
 
       <Box m = {1}>
-          <Button  type = 'submit' variant="contained" color="primary"> Create Account! </Button>
+          <Button onClick = {handleClick} type = 'submit' variant="contained" color="primary"> Create Account! </Button>
       </Box>
+      <p>
+        {create}
+      </p>
     </form> 
   
     );
