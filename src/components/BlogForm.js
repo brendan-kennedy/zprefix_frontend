@@ -28,13 +28,13 @@ function AccountForm() {
       let url = window.location.href
       let parts = url.split('/')
       let id = parts.pop() || parts.pop()
-      console.log(id)
+      //console.log(id)
       const data = await fetch(
-            `http://localhost:8080/login/${id}`
+            `https://zprefix-backend.herokuapp.com/login/${id}`
         );
     
         const user = await data.json();
-        console.log(user);
+        //console.log(user);
         setUser(user);
     
         };
@@ -44,14 +44,14 @@ function AccountForm() {
         e.preventDefault() 
         const blog = {blog_title,blog_text,blog_date, blog_user_id}
 
-        console.log(blog)
+        //console.log(blog)
 
-        fetch('http://localhost:8080/blogs/new',{
+        fetch('https://zprefix-backend.herokuapp.com/blogs/new',{
            method: 'POST' ,
            headers: {"Content-Type": "application/json"},
            body: JSON.stringify(blog)
         }).then(()=>{
-            console.log('new blog created')
+            //console.log('new blog created')
         } )
     }
     

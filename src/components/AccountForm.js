@@ -21,17 +21,17 @@ function AccountForm() {
         e.preventDefault() 
         const account = {username,password}
 
-        console.log(account)
+        //console.log(account)
     
         
       
 
-        fetch('http://localhost:8080/make',{
+        fetch('https://zprefix-backend.herokuapp.com/make',{
            method: 'POST' ,
            headers: {"Content-Type": "application/json"},
            body: JSON.stringify(account)
         }).then(()=>{
-            console.log('new user created')
+            //console.log('new user created')
         } )
     }
     

@@ -17,11 +17,11 @@ function BlogCard() {
     
     const fetchResults = async () => {
         const data = await fetch(
-            "http://localhost:8080/blogs"
+            "https://zprefix-backend.herokuapp.com/blogs"
         );
     
         const blogs = await data.json();
-        console.log(blogs);
+        
         setBlogs(blogs);
     
         };

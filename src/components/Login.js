@@ -16,14 +16,14 @@ function Login() {
       e.preventDefault() 
       const account = {username,password}
 
-      console.log(account)
+      //console.log(account)
 
-      fetch(`http://localhost:8080/login/${username}`,{
+      fetch(`https://zprefix-backend.herokuapp.com/login/${username}`,{
          method: 'POST' ,
          headers: {"Content-Type": "application/json"},
          body: JSON.stringify(account)
       }).then(()=>{
-          console.log('login successful!')
+          //console.log('login successful!')
       } )
     
   

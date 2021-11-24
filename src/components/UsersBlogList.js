@@ -20,11 +20,11 @@ function UsersBlogList() {
       let parts = url.split('/')
       let id = parts.pop() || parts.pop()
         const data = await fetch(
-            `http://localhost:8080/users/${id}/blogs`
+            `https://zprefix-backend.herokuapp.com/users/${id}/blogs`
         );
     
         const blogs = await data.json();
-        console.log(blogs);
+        //console.log(blogs);
         setBlogs(blogs);
     
         };

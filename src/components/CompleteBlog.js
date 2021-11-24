@@ -25,11 +25,11 @@ function CompleteBlog() {
       let id = parts.pop() || parts.pop()
         //console.log(id)
         const data = await fetch(
-            `http://localhost:8080/blogs/${id}`
+            `https://zprefix-backend.herokuapp.com/blogs/${id}`
         );
     
         const blog = await data.json();
-        console.log(blog);
+       // console.log(blog);
         setBlog(blog);
 
 
@@ -46,9 +46,7 @@ function CompleteBlog() {
                 <p> 
                 {blog[0].blog_text}   
                 </p>
-                {/*<Button variant="contained" color="primary">Edit</Button>
-                <Button variant="contained" color="primary">Delete</Button>*/} 
-            
+                
         </div> 
 
         )

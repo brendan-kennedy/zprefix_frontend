@@ -18,13 +18,13 @@ function DeleteForm() {
         let url = window.location.href
       let parts = url.split('/')
       let id = parts.pop() || parts.pop()
-      console.log(id)
+      //console.log(id)
         const data = await fetch(
-            `http://localhost:8080/blogs/${id}`
+            `https://zprefix-backend.herokuapp.com/blogs/${id}`
         );
     
         const blogs = await data.json();
-        console.log(blogs);
+        //console.log(blogs);
         setBlogs(blogs);
     
         };
@@ -34,10 +34,10 @@ function DeleteForm() {
       let parts = url.split('/')
       let id = parts.pop() || parts.pop()
 
-        fetch(`http://localhost:8080/blogs/${id}`,{
+        fetch(`https://zprefix-backend.herokuapp.com/blogs/${id}`,{
            method: 'DELETE' ,
         }).then(()=>{
-            console.log('BLOG DELETED')
+            //console.log('BLOG DELETED')
         } )
     }
 

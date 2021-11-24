@@ -25,11 +25,11 @@ function EditForm() {
     const fetchResults = async () => {
       
       const data = await fetch(
-            `http://localhost:8080/blogs/${id}`
+            `https://zprefix-backend.herokuapp.com/blogs/${id}`
         );
     
         const originalblog = await data.json();
-        console.log(originalblog)
+        //console.log(originalblog)
         setBlog(originalblog);
     
         };
@@ -39,14 +39,14 @@ function EditForm() {
 
         const blog = {blog_title,blog_text,blog_date,blog_user_id}
 
-        console.log(blog)
+        //console.log(blog)
 
-        fetch(`http://localhost:8080/blogs/${id}`,{
+        fetch(`https://zprefix-backend.herokuapp.com/blogs/${id}`,{
            method: 'PATCH' ,
            headers: {"Content-Type": "application/json"},
            body: JSON.stringify(blog)
         }).then(()=>{
-            console.log('Blog edited')
+            //console.log('Blog edited')
         } )
     }
 

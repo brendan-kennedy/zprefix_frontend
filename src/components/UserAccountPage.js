@@ -20,13 +20,13 @@ function UserAccountPage() {
       let url = window.location.href
       let parts = url.split('/')
       let username = parts.pop() || parts.pop()
-      console.log(username)
+      //console.log(username)
       const data = await fetch(
-            `http://localhost:8080/login/${username}`
+            `https://zprefix-backend.herokuapp.com/login/${username}`
         );
     
         const user = await data.json();
-        console.log(user);
+        //console.log(user);
         setUser(user);
     
         };

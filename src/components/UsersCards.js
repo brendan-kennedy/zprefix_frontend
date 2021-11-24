@@ -17,11 +17,11 @@ function UsersCards() {
     
     const fetchResults = async () => {
         const data = await fetch(
-            "http://localhost:8080/users"
+            "https://zprefix-backend.herokuapp.com/users"
         );
     
         const users = await data.json();
-        console.log(users);
+        //console.log(users);
         setUsers(users);
     
         };
