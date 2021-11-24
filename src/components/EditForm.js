@@ -8,46 +8,45 @@ import {
 
 function EditForm() {
 
-      
+  const [blog_title,setTitle] = useState('')
+  const [blog_text,setText] = useState('')
+  const [blog_date,setDate] = useState('')
+  const [blog_user_id,setId] = useState('')
+  const [edit, setEdit] = useState('You Have Not Edited Your Blog')
+
     useEffect(() => {
         fetchResults();
     }, []);
     
-    const [title, setTitle] = useState (title)
-    const [text, setText] = useState(text)
-    const [date, setDate] = useState(date)
-    const [blog_id, setId]= useState('')
+    const [originalblog,setBlog] = useState([{blog_title:'',blog_text:'',blog_date:'',blog_user_id:''}])
     
     const fetchResults = async () => {
       let url = window.location.href
       let parts = url.split('/')
-      console.log(parts)
+      //console.log(parts)
       let id = parts.pop() || parts.pop()
       console.log(id)
       const data = await fetch(
             `http://localhost:8080/blogs/${id}`
         );
     
-        const blog = await data.json();
-        const title = blog.blog_title
-        const text = blog.blog_text
-        const date = blog.blog_date
-        const blog_id = blog.blog_user_id
-        console.log(blog)
-        setTitle(title);
-        setText(text);
-        setDate(date);
-        setId(id);
+        const originalblog = await data.json();
+        console.log(originalblog)
+        setBlog(originalblog);
     
         };
 
     const handleSubmit = (e) => {
-        e.preventDefault() 
-        const blog = {title,text,date,blog_id}
+      e.preventDefault() 
+      let url = window.location.href
+      let parts = url.split('/')
+      let id = parts.pop() || parts.pop()
+      //console.log(id)
+        const blog = {blog_title,blog_text,blog_date,blog_user_id}
 
         console.log(blog)
 
-        fetch('http://localhost:8080/blogs/:id/edit',{
+        fetch(`http://localhost:8080/blogs/${id}`,{
            method: 'PATCH' ,
            headers: {"Content-Type": "application/json"},
            body: JSON.stringify(blog)
@@ -55,6 +54,11 @@ function EditForm() {
             console.log('Blog edited')
         } )
     }
+
+    const handleClick = () => { 
+     const edit = 'You Edited Your Blog!'
+     setEdit(edit)
+  }
     
     return (
      
@@ -62,49 +66,66 @@ function EditForm() {
       <h1>
         Edit your existing blog: 
       </h1> 
+
+      <p>
+        Current Title: {originalblog[0].blog_title}
+      </p> 
       <Box m = {1}>
       <TextField 
       id="standard-basic" 
       label="Title" 
       variant="standard"
-      value = {title}
+      value = {blog_title}
       onChange = {(e) => setTitle(e.target.value)}
     /> 
       </Box>
 
+      <p>
+        Current Text: {originalblog[0].blog_text}
+      </p>
       <Box m = {1}>
       <TextField 
       id="standard-basic" 
       label="Text" 
       variant="standard"
-      value = {text}
+      size = 'large'
+      value = {blog_text}
       onChange = {(e) => setText(e.target.value)}
     /> 
       </Box> 
 
+      <p>
+        Current Date: {originalblog[0].blog_date}
+      </p>
       <Box m = {1}>
       <TextField 
       id="standard-basic" 
       label="Date" 
       variant="standard"
-      value = {date}
+      value = {blog_date}
       onChange = {(e) => setDate(e.target.value)}
     /> 
       </Box>
 
+      <p>
+        User ID: {originalblog[0].blog_user_id}
+      </p>
       <Box m = {1}>
       <TextField 
       id="standard-basic" 
       label="User ID" 
       variant="standard"
-      value = {blog_id}
+      value = {blog_user_id}
       onChange = {(e) => setId(e.target.value)}
     /> 
       </Box>
 
       <Box m = {1}>
-          <Button  type = 'submit' variant="contained" color="primary"> Edit! </Button>
+          <Button onClick = {handleClick} type = 'submit' variant="contained" color="primary"> Edit! </Button>
       </Box>
+    <p>
+      {edit}
+    </p>
     </form> 
   
     );
